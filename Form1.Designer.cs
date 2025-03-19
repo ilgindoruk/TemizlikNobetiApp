@@ -34,7 +34,7 @@
             label1 = new Label();
             cbSinif = new ComboBox();
             panel2 = new Panel();
-            label3 = new Label();
+            pictureBox1 = new PictureBox();
             btnYeniOgrenci = new Button();
             panel3 = new Panel();
             btnOnayla = new Button();
@@ -42,11 +42,10 @@
             label2 = new Label();
             btnCikar = new Button();
             btnAta = new Button();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -59,7 +58,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(168, 542);
+            panel1.Size = new Size(168, 613);
             panel1.TabIndex = 0;
             // 
             // btnYeniSinif
@@ -67,7 +66,7 @@
             btnYeniSinif.BackColor = Color.Yellow;
             btnYeniSinif.Cursor = Cursors.Hand;
             btnYeniSinif.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnYeniSinif.Location = new Point(12, 501);
+            btnYeniSinif.Location = new Point(12, 574);
             btnYeniSinif.Name = "btnYeniSinif";
             btnYeniSinif.Size = new Size(142, 38);
             btnYeniSinif.TabIndex = 3;
@@ -81,7 +80,7 @@
             lbOgrenciler.ItemHeight = 15;
             lbOgrenciler.Location = new Point(12, 65);
             lbOgrenciler.Name = "lbOgrenciler";
-            lbOgrenciler.Size = new Size(142, 424);
+            lbOgrenciler.Size = new Size(142, 469);
             lbOgrenciler.TabIndex = 2;
             // 
             // label1
@@ -108,32 +107,33 @@
             // 
             panel2.BackColor = Color.DeepSkyBlue;
             panel2.Controls.Add(pictureBox1);
-            panel2.Controls.Add(label3);
             panel2.Controls.Add(btnYeniOgrenci);
+            panel2.Controls.Add(label2);
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(btnCikar);
             panel2.Controls.Add(btnAta);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(168, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(540, 542);
+            panel2.Size = new Size(611, 613);
             panel2.TabIndex = 1;
             // 
-            // label3
+            // pictureBox1
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(437, 518);
-            label3.Name = "label3";
-            label3.Size = new Size(103, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Ilgın Doruk ŞAHİN";
+            pictureBox1.Image = Properties.Resources.mop;
+            pictureBox1.Location = new Point(212, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(154, 121);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // btnYeniOgrenci
             // 
             btnYeniOgrenci.BackColor = Color.Yellow;
             btnYeniOgrenci.Cursor = Cursors.Hand;
             btnYeniOgrenci.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnYeniOgrenci.Location = new Point(0, 501);
+            btnYeniOgrenci.Location = new Point(469, 575);
             btnYeniOgrenci.Name = "btnYeniOgrenci";
             btnYeniOgrenci.Size = new Size(142, 38);
             btnYeniOgrenci.TabIndex = 4;
@@ -146,10 +146,9 @@
             panel3.BackColor = Color.MediumPurple;
             panel3.Controls.Add(btnOnayla);
             panel3.Controls.Add(lbSecilenler);
-            panel3.Controls.Add(label2);
-            panel3.Location = new Point(83, 139);
+            panel3.Location = new Point(86, 178);
             panel3.Name = "panel3";
-            panel3.Size = new Size(368, 320);
+            panel3.Size = new Size(419, 359);
             panel3.TabIndex = 2;
             // 
             // btnOnayla
@@ -157,7 +156,7 @@
             btnOnayla.BackColor = Color.Yellow;
             btnOnayla.Cursor = Cursors.Hand;
             btnOnayla.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnOnayla.Location = new Point(22, 241);
+            btnOnayla.Location = new Point(149, 257);
             btnOnayla.Name = "btnOnayla";
             btnOnayla.Size = new Size(120, 34);
             btnOnayla.TabIndex = 2;
@@ -169,7 +168,7 @@
             lbSecilenler.BackColor = Color.LavenderBlush;
             lbSecilenler.FormattingEnabled = true;
             lbSecilenler.ItemHeight = 15;
-            lbSecilenler.Location = new Point(21, 66);
+            lbSecilenler.Location = new Point(50, 61);
             lbSecilenler.Name = "lbSecilenler";
             lbSecilenler.Size = new Size(321, 169);
             lbSecilenler.TabIndex = 1;
@@ -179,7 +178,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.LightSteelBlue;
             label2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(60, 21);
+            label2.Location = new Point(172, 148);
             label2.Name = "label2";
             label2.Size = new Size(246, 18);
             label2.TabIndex = 0;
@@ -190,7 +189,7 @@
             btnCikar.BackColor = Color.Yellow;
             btnCikar.Cursor = Cursors.Hand;
             btnCikar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCikar.Location = new Point(433, 21);
+            btnCikar.Location = new Point(433, 2);
             btnCikar.Name = "btnCikar";
             btnCikar.Size = new Size(108, 41);
             btnCikar.TabIndex = 1;
@@ -203,7 +202,7 @@
             btnAta.BackColor = Color.Yellow;
             btnAta.Cursor = Cursors.Hand;
             btnAta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAta.Location = new Point(0, 21);
+            btnAta.Location = new Point(26, 1);
             btnAta.Name = "btnAta";
             btnAta.Size = new Size(108, 41);
             btnAta.TabIndex = 0;
@@ -211,21 +210,11 @@
             btnAta.UseVisualStyleBackColor = false;
             btnAta.Click += btnAta_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.mop;
-            pictureBox1.Location = new Point(192, 11);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(154, 121);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(708, 542);
+            ClientSize = new Size(779, 613);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -236,9 +225,8 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -257,7 +245,6 @@
         private ListBox lbSecilenler;
         private Button btnYeniOgrenci;
         private Button btnOnayla;
-        private Label label3;
         private PictureBox pictureBox1;
     }
 }

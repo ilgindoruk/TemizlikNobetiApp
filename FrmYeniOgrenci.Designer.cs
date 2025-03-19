@@ -120,7 +120,7 @@
             // 
             // btnKaydet
             // 
-            btnKaydet.BackColor = Color.CornflowerBlue;
+            btnKaydet.BackColor = Color.PowderBlue;
             btnKaydet.Cursor = Cursors.Hand;
             btnKaydet.Font = new Font("Verdana", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnKaydet.Location = new Point(191, 241);
@@ -154,7 +154,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CornflowerBlue;
+            BackColor = Color.PowderBlue;
             ClientSize = new Size(327, 308);
             Controls.Add(mtxtNumara);
             Controls.Add(cbSinif);
