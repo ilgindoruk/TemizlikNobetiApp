@@ -65,10 +65,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(56, 102);
             label3.Name = "label3";
-            label3.Size = new Size(34, 21);
+            label3.Size = new Size(32, 18);
             label3.TabIndex = 3;
             label3.Text = "Ad:";
             // 
@@ -91,30 +91,30 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label4.Font = new Font("Arial Narrow", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             label4.Location = new Point(33, 129);
             label4.Name = "label4";
-            label4.Size = new Size(57, 21);
+            label4.Size = new Size(52, 20);
             label4.TabIndex = 5;
             label4.Text = "Soyad:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(17, 158);
+            label5.Font = new Font("Arial Narrow", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label5.Location = new Point(21, 158);
             label5.Name = "label5";
-            label5.Size = new Size(73, 21);
+            label5.Size = new Size(61, 20);
             label5.TabIndex = 9;
             label5.Text = "Numara:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label6.Location = new Point(44, 189);
+            label6.Font = new Font("Arial Narrow", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label6.Location = new Point(35, 191);
             label6.Name = "label6";
-            label6.Size = new Size(46, 21);
+            label6.Size = new Size(42, 20);
             label6.TabIndex = 7;
             label6.Text = "Sınıf:";
             // 
@@ -170,6 +170,7 @@
             Name = "FrmYeniOgrenci";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmYeniOgrenci";
+            Load += FrmYeniOgrenci_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

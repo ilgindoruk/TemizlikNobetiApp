@@ -1,4 +1,4 @@
-using System.ComponentModel;
+ï»¿using System.ComponentModel;
 
 namespace TemizlikNobetiApp
 {
@@ -9,7 +9,7 @@ namespace TemizlikNobetiApp
         {
             InitializeComponent();
 
-            //ilk açýlýþta verileri yükle 
+            //ilk aÃ§Ä±lÄ±ÅŸta verileri yÃ¼kle 
             KayitYoneticisi.Yukle();
 
             cbSinif.DisplayMember = "Ad";
@@ -34,7 +34,7 @@ namespace TemizlikNobetiApp
 
             if (cevap == DialogResult.OK)
             {
-                MessageBox.Show("Yeni Sýnýf kayýt edildi.");
+                MessageBox.Show("Yeni SÄ±nÄ±f kayÄ±t edildi.");
             }
         }
 
@@ -53,12 +53,12 @@ namespace TemizlikNobetiApp
         {
             if (cbSinif.SelectedValue == null)
             {
-                //S?n?f seçili de?ilse
+                //S?n?f seÃ§ili de?ilse
                 lbOgrenciler.DataSource = null;
                 return;
             }
 
-            //S?n?f seçili
+            //S?n?f seÃ§ili
             string sinifId = cbSinif.SelectedValue.ToString();
 
             //LINQ ile sorgulama
@@ -74,12 +74,11 @@ namespace TemizlikNobetiApp
         private void cbSinif_SelectedValueChanged(object sender, EventArgs e)
         {
             Filtrele();
+            BuHaftaTemizlikYapacaklar();
         }
 
         private void btnAta_Click(object sender, EventArgs e)
         {
-            //Seçili olan? ö?renci gibi al (as=gibi)
-            //Alamazsan null de?er ver
             Ogrenci ogr = lbOgrenciler.SelectedItem as Ogrenci;
 
             if (ogr != null)
@@ -87,7 +86,7 @@ namespace TemizlikNobetiApp
 
                 if (SeciliOgrenciListesi.Contains(ogr))
                 {
-                    MessageBox.Show("Öðrenci zaten seçili");
+                    MessageBox.Show("Ã–ÄŸrenci zaten seÃ§ili");
                     return;
                 }
 
@@ -95,11 +94,38 @@ namespace TemizlikNobetiApp
             }
 
         }
+        void BuHaftaTemizlikYapacaklar()
+        {
 
+            if (cbSinif.SelectedValue == null)
+            {
+
+                return;
+            }
+
+            string sinifId =
+                   cbSinif.SelectedValue.ToString();
+
+            var liste = KayitYoneticisi.Ogrenciler
+                .Where(x => x.SinifId == sinifId)
+                .OrderBy(x => x.TemizlikPuani)
+                .Take(2);
+            lblBuhaftaSira.Text = "Bu haftaki sÄ±ra \n";
+
+            if (liste.Count() == 0)
+            {
+                lblBuhaftaSira.Text += "Temizlik yapacak Ã¶ÄŸrenci yok";
+            }
+            foreach (Ogrenci ogr in liste)
+            {
+                lblBuhaftaSira.Text += $"{ogr.AdSoyad}\n";
+            }
+
+        }
         private void btnCikar_Click(object sender, EventArgs e)
         {
-            //Seçili olaný öðrenci gibi al (as=gibi)
-            //Alamazsan null deðer ver
+            //SeÃ§ili olanÄ± Ã¶ÄŸrenci gibi al (as=gibi)
+            //Alamazsan null deÄŸer ver
             Ogrenci ogr = lbSecilenler.SelectedItem as Ogrenci;
 
             if (ogr != null)
@@ -117,21 +143,63 @@ namespace TemizlikNobetiApp
         {
             if (cbSinif.SelectedValue == null)
             {
+
                 lbOgrenciler.DataSource = null;
                 return;
             }
-            string sinifýd = cbSinif.SelectedValue.ToString();
+
+
+            string sinifId = cbSinif.SelectedValue.ToString();
 
             var liste = KayitYoneticisi.Ogrenciler
-            .Where(x => x.SinifId == sinifýd)
-            .OrderBy(x => x.TemizlikPuani)
-            .Take(2);
-            lblBuhaftaSira.Text = "Bu haftaki sýra:  ";
+                .Where(x => x.SinifId == sinifId)
+                .OrderBy(x => x.TemizlikPuani)
+                .Take(2);
 
-            foreach(Ogrenci ogr in liste)
+            foreach (Ogrenci ogr in liste)
             {
-                lblBuhaftaSira.Text +=$"{ogr.AdSoyad}";
+                if (!SeciliOgrenciListesi.Contains(ogr))
+                    SeciliOgrenciListesi.Add(ogr);
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            lblTarih.Text = $"BugÃ¼n {dt:dd} {dt:MMMM} {dt:yyyy} Saat: {dt:HH}:{dt:mm}";
+        }
+
+        private void btnOnayla_Click(object sender, EventArgs e)
+        {
+            if (SeciliOgrenciListesi.Count == 0)
+            {
+                MessageBox.Show("Ã–ÄŸrenci SeÃ§imi YapÄ±nÄ±z");
+                return;
+            }
+
+
+            foreach (Ogrenci ogr in SeciliOgrenciListesi)
+            {
+                TemizlikKayit kayit = new();
+                kayit.Id = Guid.NewGuid().ToString();
+                kayit.OgrenciId = ogr.Id;
+                kayit.Tarih = dtpTarih.Value;
+
+                KayitYoneticisi.TemizlikKayitlari.Add(kayit);
+            }
+
+            SeciliOgrenciListesi.Clear();
+
+            KayitYoneticisi.Kaydet();
+            Filtrele();
+            BuHaftaTemizlikYapacaklar();
+            MessageBox.Show("KayÄ±t oluÅŸturuldu");
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

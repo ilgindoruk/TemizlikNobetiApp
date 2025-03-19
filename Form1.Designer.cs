@@ -28,27 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             btnYeniSinif = new Button();
             lbOgrenciler = new ListBox();
             label1 = new Label();
             cbSinif = new ComboBox();
             panel2 = new Panel();
-            lblBuhaftaSira = new Label();
+            label3 = new Label();
+            lblTarih = new Label();
             bttnSec = new Button();
             pictureBox1 = new PictureBox();
             btnYeniOgrenci = new Button();
             label2 = new Label();
             panel3 = new Panel();
+            panel4 = new Panel();
+            lblBuhaftaSira = new Label();
+            dtpTarih = new DateTimePicker();
             btnOnayla = new Button();
             lbSecilenler = new ListBox();
             btnCikar = new Button();
             btnAta = new Button();
-            dateTimePicker1 = new DateTimePicker();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -61,7 +67,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(168, 613);
+            panel1.Size = new Size(168, 563);
             panel1.TabIndex = 0;
             // 
             // btnYeniSinif
@@ -69,7 +75,7 @@
             btnYeniSinif.BackColor = Color.Yellow;
             btnYeniSinif.Cursor = Cursors.Hand;
             btnYeniSinif.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnYeniSinif.Location = new Point(12, 574);
+            btnYeniSinif.Location = new Point(12, 514);
             btnYeniSinif.Name = "btnYeniSinif";
             btnYeniSinif.Size = new Size(142, 38);
             btnYeniSinif.TabIndex = 3;
@@ -83,7 +89,7 @@
             lbOgrenciler.ItemHeight = 15;
             lbOgrenciler.Location = new Point(12, 65);
             lbOgrenciler.Name = "lbOgrenciler";
-            lbOgrenciler.Size = new Size(142, 469);
+            lbOgrenciler.Size = new Size(142, 439);
             lbOgrenciler.TabIndex = 2;
             // 
             // label1
@@ -109,7 +115,8 @@
             // panel2
             // 
             panel2.BackColor = Color.DeepSkyBlue;
-            panel2.Controls.Add(lblBuhaftaSira);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(lblTarih);
             panel2.Controls.Add(bttnSec);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(btnYeniOgrenci);
@@ -120,21 +127,30 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(168, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(611, 613);
+            panel2.Size = new Size(612, 563);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
             // 
-            // lblBuhaftaSira
+            // label3
             // 
-            lblBuhaftaSira.AutoSize = true;
-            lblBuhaftaSira.Location = new Point(93, 568);
-            lblBuhaftaSira.Name = "lblBuhaftaSira";
-            lblBuhaftaSira.Size = new Size(163, 15);
-            lblBuhaftaSira.TabIndex = 8;
-            lblBuhaftaSira.Text = "Bu hafta temizlik yapacaklar:  ";
+            label3.AutoSize = true;
+            label3.Location = new Point(512, 550);
+            label3.Name = "label3";
+            label3.Size = new Size(97, 15);
+            label3.TabIndex = 10;
+            label3.Text = "Ilgın Doruk Şahin";
+            // 
+            // lblTarih
+            // 
+            lblTarih.AutoSize = true;
+            lblTarih.Location = new Point(434, 82);
+            lblTarih.Name = "lblTarih";
+            lblTarih.Size = new Size(0, 15);
+            lblTarih.TabIndex = 9;
             // 
             // bttnSec
             // 
-            bttnSec.Location = new Point(0, 564);
+            bttnSec.Location = new Point(0, 520);
             bttnSec.Name = "bttnSec";
             bttnSec.Size = new Size(75, 23);
             bttnSec.TabIndex = 7;
@@ -145,7 +161,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.mop;
-            pictureBox1.Location = new Point(212, 8);
+            pictureBox1.Location = new Point(209, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(154, 121);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -157,7 +173,7 @@
             btnYeniOgrenci.BackColor = Color.Yellow;
             btnYeniOgrenci.Cursor = Cursors.Hand;
             btnYeniOgrenci.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnYeniOgrenci.Location = new Point(469, 575);
+            btnYeniOgrenci.Location = new Point(469, 512);
             btnYeniOgrenci.Name = "btnYeniOgrenci";
             btnYeniOgrenci.Size = new Size(142, 38);
             btnYeniOgrenci.TabIndex = 4;
@@ -170,7 +186,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.LightSteelBlue;
             label2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(172, 148);
+            label2.Location = new Point(163, 129);
             label2.Name = "label2";
             label2.Size = new Size(246, 18);
             label2.TabIndex = 0;
@@ -179,13 +195,38 @@
             // panel3
             // 
             panel3.BackColor = Color.MediumPurple;
-            panel3.Controls.Add(dateTimePicker1);
+            panel3.Controls.Add(panel4);
+            panel3.Controls.Add(dtpTarih);
             panel3.Controls.Add(btnOnayla);
             panel3.Controls.Add(lbSecilenler);
-            panel3.Location = new Point(86, 170);
+            panel3.Location = new Point(72, 150);
             panel3.Name = "panel3";
             panel3.Size = new Size(419, 359);
             panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(lblBuhaftaSira);
+            panel4.Location = new Point(50, 362);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(200, 100);
+            panel4.TabIndex = 11;
+            // 
+            // lblBuhaftaSira
+            // 
+            lblBuhaftaSira.AutoSize = true;
+            lblBuhaftaSira.Location = new Point(12, 15);
+            lblBuhaftaSira.Name = "lblBuhaftaSira";
+            lblBuhaftaSira.Size = new Size(163, 15);
+            lblBuhaftaSira.TabIndex = 8;
+            lblBuhaftaSira.Text = "Bu hafta temizlik yapacaklar:  ";
+            // 
+            // dtpTarih
+            // 
+            dtpTarih.Location = new Point(171, 277);
+            dtpTarih.Name = "dtpTarih";
+            dtpTarih.Size = new Size(200, 23);
+            dtpTarih.TabIndex = 3;
             // 
             // btnOnayla
             // 
@@ -198,6 +239,7 @@
             btnOnayla.TabIndex = 2;
             btnOnayla.Text = "Onayla";
             btnOnayla.UseVisualStyleBackColor = false;
+            btnOnayla.Click += btnOnayla_Click;
             // 
             // lbSecilenler
             // 
@@ -214,7 +256,7 @@
             btnCikar.BackColor = Color.Yellow;
             btnCikar.Cursor = Cursors.Hand;
             btnCikar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCikar.Location = new Point(426, 2);
+            btnCikar.Location = new Point(503, -1);
             btnCikar.Name = "btnCikar";
             btnCikar.Size = new Size(108, 41);
             btnCikar.TabIndex = 1;
@@ -227,7 +269,7 @@
             btnAta.BackColor = Color.Yellow;
             btnAta.Cursor = Cursors.Hand;
             btnAta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAta.Location = new Point(26, 1);
+            btnAta.Location = new Point(0, 0);
             btnAta.Name = "btnAta";
             btnAta.Size = new Size(108, 41);
             btnAta.TabIndex = 0;
@@ -235,18 +277,17 @@
             btnAta.UseVisualStyleBackColor = false;
             btnAta.Click += btnAta_Click;
             // 
-            // dateTimePicker1
+            // timer1
             // 
-            dateTimePicker1.Location = new Point(171, 277);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 3;
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(779, 613);
+            ClientSize = new Size(780, 563);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -259,6 +300,8 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -280,6 +323,10 @@
         private PictureBox pictureBox1;
         private Button bttnSec;
         private Label lblBuhaftaSira;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpTarih;
+        private System.Windows.Forms.Timer timer1;
+        private Label lblTarih;
+        private Label label3;
+        private Panel panel4;
     }
 }

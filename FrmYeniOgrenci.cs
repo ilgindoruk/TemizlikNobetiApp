@@ -34,5 +34,10 @@ namespace TemizlikNobetiApp
             KayitYoneticisi.Kaydet();
             DialogResult = DialogResult.OK;
         }
+
+        private void FrmYeniOgrenci_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

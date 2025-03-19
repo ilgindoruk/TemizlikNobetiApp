@@ -20,7 +20,7 @@ namespace TemizlikNobetiApp
         {
             get
             {
-                return Ad + " " + Soyad;
+                return $"{Ad} {Soyad} (TP: {TemizlikPuani} )";
             }
         }
         public int TemizlikPuani
