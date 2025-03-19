@@ -112,5 +112,26 @@ namespace TemizlikNobetiApp
         {
 
         }
+
+        private void bttnSec_Click(object sender, EventArgs e)
+        {
+            if (cbSinif.SelectedValue == null)
+            {
+                lbOgrenciler.DataSource = null;
+                return;
+            }
+            string sinifýd = cbSinif.SelectedValue.ToString();
+
+            var liste = KayitYoneticisi.Ogrenciler
+            .Where(x => x.SinifId == sinifýd)
+            .OrderBy(x => x.TemizlikPuani)
+            .Take(2);
+            lblBuhaftaSira.Text = "Bu haftaki sýra:  ";
+
+            foreach(Ogrenci ogr in liste)
+            {
+                lblBuhaftaSira.Text +=$"{ogr.AdSoyad}";
+            }
+        }
     }
 }

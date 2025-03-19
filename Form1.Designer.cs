@@ -34,14 +34,17 @@
             label1 = new Label();
             cbSinif = new ComboBox();
             panel2 = new Panel();
+            lblBuhaftaSira = new Label();
+            bttnSec = new Button();
             pictureBox1 = new PictureBox();
             btnYeniOgrenci = new Button();
+            label2 = new Label();
             panel3 = new Panel();
             btnOnayla = new Button();
             lbSecilenler = new ListBox();
-            label2 = new Label();
             btnCikar = new Button();
             btnAta = new Button();
+            dateTimePicker1 = new DateTimePicker();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -106,6 +109,8 @@
             // panel2
             // 
             panel2.BackColor = Color.DeepSkyBlue;
+            panel2.Controls.Add(lblBuhaftaSira);
+            panel2.Controls.Add(bttnSec);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(btnYeniOgrenci);
             panel2.Controls.Add(label2);
@@ -117,6 +122,25 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(611, 613);
             panel2.TabIndex = 1;
+            // 
+            // lblBuhaftaSira
+            // 
+            lblBuhaftaSira.AutoSize = true;
+            lblBuhaftaSira.Location = new Point(93, 568);
+            lblBuhaftaSira.Name = "lblBuhaftaSira";
+            lblBuhaftaSira.Size = new Size(163, 15);
+            lblBuhaftaSira.TabIndex = 8;
+            lblBuhaftaSira.Text = "Bu hafta temizlik yapacaklar:  ";
+            // 
+            // bttnSec
+            // 
+            bttnSec.Location = new Point(0, 564);
+            bttnSec.Name = "bttnSec";
+            bttnSec.Size = new Size(75, 23);
+            bttnSec.TabIndex = 7;
+            bttnSec.Text = "Seç";
+            bttnSec.UseVisualStyleBackColor = true;
+            bttnSec.Click += bttnSec_Click;
             // 
             // pictureBox1
             // 
@@ -141,12 +165,24 @@
             btnYeniOgrenci.UseVisualStyleBackColor = false;
             btnYeniOgrenci.Click += btnYeniOgrenci_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.LightSteelBlue;
+            label2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(172, 148);
+            label2.Name = "label2";
+            label2.Size = new Size(246, 18);
+            label2.TabIndex = 0;
+            label2.Text = "Bu Hafta Temizlik Yapacaklar";
+            // 
             // panel3
             // 
             panel3.BackColor = Color.MediumPurple;
+            panel3.Controls.Add(dateTimePicker1);
             panel3.Controls.Add(btnOnayla);
             panel3.Controls.Add(lbSecilenler);
-            panel3.Location = new Point(86, 178);
+            panel3.Location = new Point(86, 170);
             panel3.Name = "panel3";
             panel3.Size = new Size(419, 359);
             panel3.TabIndex = 2;
@@ -156,7 +192,7 @@
             btnOnayla.BackColor = Color.Yellow;
             btnOnayla.Cursor = Cursors.Hand;
             btnOnayla.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnOnayla.Location = new Point(149, 257);
+            btnOnayla.Location = new Point(0, 325);
             btnOnayla.Name = "btnOnayla";
             btnOnayla.Size = new Size(120, 34);
             btnOnayla.TabIndex = 2;
@@ -173,23 +209,12 @@
             lbSecilenler.Size = new Size(321, 169);
             lbSecilenler.TabIndex = 1;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.LightSteelBlue;
-            label2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(172, 148);
-            label2.Name = "label2";
-            label2.Size = new Size(246, 18);
-            label2.TabIndex = 0;
-            label2.Text = "Bu Hafta Temizlik Yapacaklar";
-            // 
             // btnCikar
             // 
             btnCikar.BackColor = Color.Yellow;
             btnCikar.Cursor = Cursors.Hand;
             btnCikar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCikar.Location = new Point(433, 2);
+            btnCikar.Location = new Point(426, 2);
             btnCikar.Name = "btnCikar";
             btnCikar.Size = new Size(108, 41);
             btnCikar.TabIndex = 1;
@@ -209,6 +234,13 @@
             btnAta.Text = "Ata";
             btnAta.UseVisualStyleBackColor = false;
             btnAta.Click += btnAta_Click;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(171, 277);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 3;
             // 
             // Form1
             // 
@@ -246,5 +278,8 @@
         private Button btnYeniOgrenci;
         private Button btnOnayla;
         private PictureBox pictureBox1;
+        private Button bttnSec;
+        private Label lblBuhaftaSira;
+        private DateTimePicker dateTimePicker1;
     }
 }

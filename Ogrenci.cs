@@ -23,5 +23,16 @@ namespace TemizlikNobetiApp
                 return Ad + " " + Soyad;
             }
         }
+        public int TemizlikPuani
+        {
+            get
+            {
+                int sayi = KayitYoneticisi.TemizlikKayitlari.
+                    Count(x => x.OgrenciId == Id);
+
+                return sayi;
+            }
+
+        }
     }
 }
